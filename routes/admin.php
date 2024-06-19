@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -29,5 +30,8 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
 
     // Location Routes
     Route::resource('/location', LocationController::class);
+
+    // Amenity Routes
+    Route::resource('/amenity', AmenityController::class);
 
 });
