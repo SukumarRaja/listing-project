@@ -26,4 +26,12 @@ trait FileUploadTrait
         }
         return null;
     }
+
+    function deleteFile($path): void
+    {
+        $excludedFolder = '/default';
+        if ($path && File::exists(public_path($path)) && strpos($path, $excludedFolder) !== 0) {
+            File::delete(public_path($path));
+        }
+    }
 }
