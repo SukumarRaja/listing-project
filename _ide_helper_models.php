@@ -16,6 +16,60 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string $icon
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity whereUpdatedAt($value)
+ */
+	class Amenity extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string $image_icon
+ * @property string $background_image
+ * @property int $show_at_home
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereBackgroundImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereImageIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereShowAtHome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ */
+	class Category extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $title
  * @property string $sub_title
  * @property string|null $background
@@ -32,6 +86,125 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Hero whereUpdatedAt($value)
  */
 	class Hero extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $category_id
+ * @property int $location_id
+ * @property int|null $package_id
+ * @property string $image
+ * @property string $thumbnail_image
+ * @property string $title
+ * @property string $slug
+ * @property string $description
+ * @property string $phone
+ * @property string $email
+ * @property string $address
+ * @property string|null $website
+ * @property string|null $facebook_link
+ * @property string|null $x_link
+ * @property string|null $linkedin_link
+ * @property string|null $whatsapp_link
+ * @property int $is_verified
+ * @property int $is_featured
+ * @property int $views
+ * @property string|null $goolge_map_embed_code
+ * @property string|null $file
+ * @property string $expire_date
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property int $status
+ * @property string|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Category $category
+ * @property-read \App\Models\Location $location
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereExpireDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereFacebookLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereGoolgeMapEmbedCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereIsFeatured($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereIsVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereLinkedinLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePackageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereSeoTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereThumbnailImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereViews($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereWebsite($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereWhatsappLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereXLink($value)
+ */
+	class Listing extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $listing_id
+ * @property int $amenity_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereAmenityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereUpdatedAt($value)
+ */
+	class ListingAmenity extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property int $show_at_home
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereShowAtHome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
+ */
+	class Location extends \Eloquent {}
 }
 
 namespace App\Models{

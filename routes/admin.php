@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ListingController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,8 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
 
     // Amenity Routes
     Route::resource('/amenity', AmenityController::class);
+
+    // Listing Routes
+    Route::resource('/listing', ListingController::class);
 
 });
