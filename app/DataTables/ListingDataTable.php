@@ -30,7 +30,8 @@ class ListingDataTable extends DataTable
                 <i class = "fas fa-cog"></i>
                 </button>
                 <div class="dropdown-menu dropleft">
-                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="' . route('admin.listing-image-gallery.index', ['id' => $query->id]) . '"> Image Gallery </a>
+                  <a class="dropdown-item" href="' . route('admin.listing-video-gallery.index', ['id' => $query->id]) . '"> Video Gallery </a>
                 </div>
               </div>';
                 return $edit . $delete . $more;
