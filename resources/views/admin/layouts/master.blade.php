@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/modules/select2/dist/css/select2.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
@@ -72,6 +73,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>

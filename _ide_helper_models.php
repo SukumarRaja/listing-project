@@ -119,13 +119,15 @@ namespace App\Models{
  * @property string|null $seo_title
  * @property string|null $seo_description
  * @property int $status
- * @property string|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Category $category
  * @property-read \App\Models\Location $location
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing query()
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCategoryId($value)
@@ -157,6 +159,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereWebsite($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereWhatsappLink($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereXLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing withoutTrashed()
  */
 	class Listing extends \Eloquent {}
 }
@@ -180,6 +184,75 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ListingAmenity whereUpdatedAt($value)
  */
 	class ListingAmenity extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $listing_id
+ * @property string $image
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereUpdatedAt($value)
+ */
+	class ListingImageGallery extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $listing_id
+ * @property string $day
+ * @property string $start_time
+ * @property string $end_time
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereStartTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingSchedule whereUpdatedAt($value)
+ */
+	class ListingSchedule extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $listing_id
+ * @property string $video_url
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery whereVideoUrl($value)
+ */
+	class ListingVideoGallery extends \Eloquent {}
 }
 
 namespace App\Models{

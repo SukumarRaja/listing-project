@@ -32,15 +32,22 @@ class ListingDataTable extends DataTable
                 <div class="dropdown-menu dropleft">
                   <a class="dropdown-item" href="' . route('admin.listing-image-gallery.index', ['id' => $query->id]) . '"> Image Gallery </a>
                   <a class="dropdown-item" href="' . route('admin.listing-video-gallery.index', ['id' => $query->id]) . '"> Video Gallery </a>
+                  <a class="dropdown-item" href="' . route('admin.listing-schedule.index', ['id' => $query->id]) . '"> Schedule </a>
                 </div>
               </div>';
                 return $edit . $delete . $more;
+            })
+            ->addColumn('image', function ($query) {
+                return '<img width="80" src="' . asset($query->image) . '" class="rounded">';
             })
             ->addColumn('category', function ($query) {
                 return $query->category->name;
             })
             ->addColumn('location', function ($query) {
                 return $query->location->name;
+            })
+            ->addColumn('by', function ($query) {
+                return $query->user?->name;
             })
             ->addColumn('status', function ($query) {
                 if ($query->status === 1) {
@@ -49,7 +56,21 @@ class ListingDataTable extends DataTable
                     return "<span class='badge badge-danger'>Inactive</span>";
                 }
             })
-            ->rawColumns(['status', 'action'])
+            ->addColumn('is_featured', function ($query) {
+                if ($query->is_featured === 1) {
+                    return "<span class='badge badge-primary'>Yes</span>";
+                } else {
+                    return "<span class='badge badge-danger'>No</span>";
+                }
+            })
+            ->addColumn('is_verified', function ($query) {
+                if ($query->is_verified === 1) {
+                    return "<span class='badge badge-primary'>Yes</span>";
+                } else {
+                    return "<span class='badge badge-danger'>No</span>";
+                }
+            })
+            ->rawColumns(['status', 'action', 'is_verified', 'is_featured', 'image'])
             ->setRowId('id');
     }
 
@@ -91,10 +112,14 @@ class ListingDataTable extends DataTable
         return [
 
             Column::make('id'),
+            Column::make('image'),
             Column::make('title'),
             Column::make('category'),
             Column::make('location'),
             Column::make('status'),
+            Column::make('is_featured'),
+            Column::make('is_verified'),
+            Column::make('by'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

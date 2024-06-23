@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ListingController;
 use App\Http\Controllers\Admin\ListingImageGalleryController;
+use App\Http\Controllers\Admin\ListingScheduleController;
 use App\Http\Controllers\Admin\ListingVideoGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -45,4 +46,7 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
 
     // Listing Video Gallery
     Route::resource('/listing-video-gallery', ListingVideoGalleryController::class);
+
+    // Listing Schedule
+    Route::resource('/listing-schedule', ListingScheduleController::class);
 });

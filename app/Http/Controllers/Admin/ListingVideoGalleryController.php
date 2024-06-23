@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Listing;
 use App\Models\ListingVideoGallery;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class ListingVideoGalleryController extends Controller
     public function index(Request $request)
     {
         $videos = ListingVideoGallery::where('listing_id', $request->id)->get();
-        return view('admin.listing.video-gallery.index', compact('videos'));
+        $listingTitle = Listing::select('title')->where('id', $request->id)->first();
+        return view('admin.listing.video-gallery.index', compact('videos', 'listingTitle'));
     }
 
     public function store(Request $request)
