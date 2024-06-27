@@ -19,8 +19,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+
 
     <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+
+    @stack('styles')
 </head>
 
 <body>
@@ -84,6 +88,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
 
@@ -92,11 +98,11 @@
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                toastr.error({{ $error }});
+                toastr.error("{{ $error }}");
             @endforeach
         @endif
     </script>
-
+    @stack('scripts')
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\AgentListingController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendProfileController;
@@ -26,6 +27,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
     Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/update', [FrontendProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile-password', [FrontendProfileController::class, 'updatePassword'])->name('profile-password.update');
+
+
+    // Listing Routes
+    Route::resource('/listing', AgentListingController::class);
 });
 
 require __DIR__ . '/auth.php';
