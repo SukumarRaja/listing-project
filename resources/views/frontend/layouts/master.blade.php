@@ -92,6 +92,8 @@
 
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
 
@@ -101,6 +103,50 @@
                 toastr.error("{{ $error }}");
             @endforeach
         @endif
+        $('body').on('click', '.delete-item', function(e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            console.log(url);
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: 'DELETE',
+                        url: url,
+                        data: {
+                            _token: "{{ csrf_token() }}"
+                        },
+                        success: function(response) {
+                            if (response.status === 'success') {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: response.message,
+                                    icon: "success"
+                                });
+
+                                window.location.reload();
+                            } else if (response.status === 'error') {
+                                Swal.fire({
+                                    title: "Something wen\'t wrong!",
+                                    text: response.message,
+                                    icon: "error"
+                                });
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    })
+                }
+            })
+        })
     </script>
     @stack('scripts')
 </body>

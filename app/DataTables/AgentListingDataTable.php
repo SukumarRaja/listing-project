@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Models\Listing;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -23,16 +24,16 @@ class AgentListingDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $edit = '<a href="' . route('admin.listing.edit', $query->id) . '" class="btn btn-sm btn-primary me-2"><i class="fas fa-edit"></i></a>';
-                $delete = '<a href="' . route('admin.listing.destroy', $query->id) . '" class="btn btn-sm btn-danger ml-2 delete-item"><i class="fas fa-trash"></i></a>';
+                $edit = '<a href="' . route('user.listing.edit', $query->id) . '" class="btn btn-sm btn-primary me-2"><i class="fas fa-edit"></i></a>';
+                $delete = '<a href="' . route('user.listing.destroy', $query->id) . '" class="btn btn-sm btn-danger ml-2 delete-item"><i class="fas fa-trash"></i></a>';
                 $more = '<div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle btn-sm mt-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class = "fas fa-cog"></i>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="' . route('user.listing-image-gallery.index', ['id' => $query->id]) . '">Image Gallery</a></li>
+                <li><a class="dropdown-item" href="#">Video Gallery</a></li>
+                <li><a class="dropdown-item" href="#">Schedule</a></li>
             </ul>
                 </div>';
 
@@ -79,7 +80,7 @@ class AgentListingDataTable extends DataTable
      */
     public function query(Listing $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->where('user_id', Auth::user()->id)->newQuery();
     }
 
     /**

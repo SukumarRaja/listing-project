@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\AgentListingController;
+use App\Http\Controllers\Frontend\AgentListingGalleryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendProfileController;
@@ -31,6 +32,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
 
     // Listing Routes
     Route::resource('/listing', AgentListingController::class);
+
+    // Listing Image Gallery Route
+    Route::resource('/listing-image-gallery', AgentListingGalleryController::class);
 });
 
 require __DIR__ . '/auth.php';
