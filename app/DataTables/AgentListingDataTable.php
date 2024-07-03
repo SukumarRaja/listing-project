@@ -32,8 +32,8 @@ class AgentListingDataTable extends DataTable
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="' . route('user.listing-image-gallery.index', ['id' => $query->id]) . '">Image Gallery</a></li>
-                <li><a class="dropdown-item" href="#">Video Gallery</a></li>
-                <li><a class="dropdown-item" href="#">Schedule</a></li>
+                <li><a class="dropdown-item" href="' . route('user.listing-video-gallery.index', ['id' => $query->id]) . '">Video Gallery</a></li>
+                <li><a class="dropdown-item" href="' . route('user.listing-schedule.index', ['id' => $query->id]) . '">Schedule</a></li>
             </ul>
                 </div>';
 

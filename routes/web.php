@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Frontend\AgentListingController;
 use App\Http\Controllers\Frontend\AgentListingGalleryController;
+use App\Http\Controllers\Frontend\AgentListingScheduleController;
+use App\Http\Controllers\Frontend\AgentListingVideoController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendProfileController;
@@ -35,6 +37,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
 
     // Listing Image Gallery Route
     Route::resource('/listing-image-gallery', AgentListingGalleryController::class);
+
+    //Listing Video Gallery Route
+    Route::resource('/listing-video-gallery', AgentListingVideoController::class);
+
+    //Listing Schedule Route
+    Route::resource('/listing-schedule', AgentListingScheduleController::class);
 });
 
 require __DIR__ . '/auth.php';
