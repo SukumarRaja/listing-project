@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('listings', [FrontendController::class, 'listings'])->name('listings');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
