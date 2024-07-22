@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ListingImageGalleryController;
 use App\Http\Controllers\Admin\ListingScheduleController;
 use App\Http\Controllers\Admin\ListingVideoGalleryController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\PendingListingController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +50,8 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
 
     // Listing Schedule
     Route::resource('/listing-schedule', ListingScheduleController::class);
+
+
+    // Pending Listing
+    Route::get('/pending-listings', [PendingListingController::class, 'index'])->name('pending.listing');
 });
