@@ -32,4 +32,19 @@ class FrontendController extends Controller
         $listings = $listing->paginate(12);
         return view('frontend.pages.listings', compact('listings'));
     }
+
+    function listingModal($id)
+    {
+        $listing  = Listing::findOrFail($id);
+        return view('frontend.layouts.ajax-listing-modal', compact('listing'))->render();
+    }
+
+    function showListing($slug): View
+    {
+        $listing  = Listing::where(['status' => 1, 'is_verified' => 1])->where('slug', $slug)->first();
+
+        $similarListings = Listing::where('category_id', $listing->category_id)->where('id', '!=', $listing->id)->orderBy('id', 'DESC')->take(4)->get();
+
+        return view('frontend.pages.listing-view', compact('listing','similarListings'));
+    }
 }

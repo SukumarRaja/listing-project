@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('listings', [FrontendController::class, 'listings'])->name('listings');
+Route::get('listing-modal/{id}', [FrontendController::class, 'listingModal'])->name('listing-modal');
+Route::get('listing/{slug}', [FrontendController::class, 'showListing'])->name('listing.show');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

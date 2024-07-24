@@ -175,8 +175,8 @@
                                     <textarea name="description" class="summernote">{!! $listing->description !!}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Google Map Embed Code</label>
-                                    <textarea name="google_map_embed_code" class="form-control">{!! $listing->goolge_map_embed_code !!}</textarea>
+                                    <label for="">Google Map Embed Code <span class="text-danger">(size: 1000x400)</span></label>
+                                    <textarea name="goolge_map_embed_code" class="form-control">{!! $listing->goolge_map_embed_code !!}</textarea>
                                 </div>
 
                                 {{-- SEO --}}

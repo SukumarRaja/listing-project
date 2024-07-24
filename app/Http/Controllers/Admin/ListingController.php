@@ -116,7 +116,7 @@ class ListingController extends Controller
     public function update(Request $request, string $id)
     {
         $validate = $request->validate([
-            'title' => 'required|unique:listings,title'
+            'title' => 'required', 'string', 'max:255', 'unique:listings,title,'.$request->title,
         ]);
 
         $imagePath = $this->uploadImage($request, 'image', $request->old_image);
