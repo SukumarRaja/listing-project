@@ -12,48 +12,54 @@
             </div>
             <div class="procing_area">
                 <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="member_price">
-                            <h4>basic</h4>
-                            <h5>$99.99 <span>/ month</span></h5>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Hide Branding Available</p>
-                            <p>Free Setup Available</p>
-                            <p>1 vCards</p>
-                            <a href="#">Order now</a>
+                    @foreach ($packages as $package)
+                        <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="member_price">
+                                <h4>{{ $package->name }}</h4>
+                                <h5>${{ $package->price }}
+                                    @if ($package->number_of_days === -1)
+                                        <span>/ Lifetime</span>
+                                    @else
+                                        <span>/ {{ $package->number_of_days }} Days</span>
+                                    @endif
+
+                                </h5>
+                                @if ($package->number_of_listings === -1)
+                                    <p>Unlimited Listings</p>
+                                @else
+                                    <p>{{ $package->number_of_listings }} Listings</p>
+                                @endif
+
+                                @if ($package->number_of_amenities === -1)
+                                    <p>Unlimited Amenities</p>
+                                @else
+                                    <p>{{ $package->number_of_amenities }} Amenities</p>
+                                @endif
+
+                                @if ($package->number_of_photos === -1)
+                                    <p>Unlimited Photos</p>
+                                @else
+                                    <p>{{ $package->number_of_photos }} Photos</p>
+                                @endif
+
+                                @if ($package->number_of_videos === -1)
+                                    <p>Unlimited Videos</p>
+                                @else
+                                    <p>{{ $package->number_of_videos }} Videos</p>
+                                @endif
+
+                                @if ($package->number_of_featured_listings === -1)
+                                    <p>Unlimited Feature Listings</p>
+                                @else
+                                    <p>{{ $package->number_of_featured_listings }} Feature Listings</p>
+                                @endif
+
+                                <a href="#">Order now</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="member_price active">
-                            <h4>standard</h4>
-                            <h5>$149.99 <span>/ month</span></h5>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Hide Branding Available</p>
-                            <p>Free Setup Available</p>
-                            <p>1 vCards</p>
-                            <a href="#">Order now</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="member_price">
-                            <h4>ultimate</h4>
-                            <h5>$190.99 <span>/ month</span></h5>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Personalized Link Available</p>
-                            <p>Free Support Available</p>
-                            <p>Hide Branding Available</p>
-                            <p>Free Setup Available</p>
-                            <p>1 vCards</p>
-                            <a href="#">Order now</a>
-                        </div>
-                    </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
