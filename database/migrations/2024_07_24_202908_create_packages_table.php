@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['free','paid']);
+            $table->string('name');
+            $table->double('price');
+            $table->integer('number_of_days');
+            $table->integer('number_of_listings');
+            $table->integer('number_of_photos');
+            $table->integer('number_of_videos');
+            $table->integer('number_of_amenities');
+            $table->integer('number_of_featured_listings');
+            $table->boolean('show_at_home');
+            $table->boolean('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
