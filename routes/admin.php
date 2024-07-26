@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PendingListingController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login')->middleware('guest');
@@ -58,4 +59,8 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
 
     // Pending Listing
     Route::get('/pending-listings', [PendingListingController::class, 'index'])->name('pending.listing');
+
+    //Settings Route
+    Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
+    Route::post('/general-settings', [SettingController::class, 'updateGeneralSetting'])->name('general-setting.update');
 });
