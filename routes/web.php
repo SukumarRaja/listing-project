@@ -15,6 +15,7 @@ Route::get('listings', [FrontendController::class, 'listings'])->name('listings'
 Route::get('listing-modal/{id}', [FrontendController::class, 'listingModal'])->name('listing-modal');
 Route::get('listing/{slug}', [FrontendController::class, 'showListing'])->name('listing.show');
 Route::get('packages', [FrontendController::class, 'showPackages'])->name('package.show');
+Route::get('checkout/{id}', [FrontendController::class, 'checkout'])->name('checkout.index');
 
 
 Route::middleware('auth')->group(function () {
