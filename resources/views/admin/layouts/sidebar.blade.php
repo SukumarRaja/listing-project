@@ -282,12 +282,14 @@
                 </ul>
             </li>
             {{-- Packages --}}
-            <li class="dropdown {{ setSidebarActive(['admin.package.*']) }}">
+            <li class="dropdown {{ setSidebarActive(['admin.package.*', 'admin.payment-setting.index']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i> <span>Manage Packages</span></a>
                 <ul class="dropdown-menu" {{ setSidebarActive(['admin.package.*']) }}>
                     <li class="{{ setSidebarActive(['admin.package.*']) }}"><a class="nav-link"
                             href="{{ route('admin.package.index') }}">Packages</a></li>
+                    <li class="{{ setSidebarActive(['admin.payment-setting.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.payment-setting.index') }}">Payment Settings</a></li>
                 </ul>
             </li>
             <li class="{{ setSidebarActive(['admin.setting.index']) }}"><a class="nav-link"

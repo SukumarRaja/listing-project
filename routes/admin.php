@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ListingScheduleController;
 use App\Http\Controllers\Admin\ListingVideoGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\PendingListingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
@@ -63,4 +64,7 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     //Settings Route
     Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
     Route::post('/general-settings', [SettingController::class, 'updateGeneralSetting'])->name('general-setting.update');
+
+    // Payement Settings Controller
+    Route::get('/payment-settings', [PaymentSettingController::class, 'index'])->name('payment-setting.index');
 });
