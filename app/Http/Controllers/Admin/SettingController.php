@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use App\Services\SettingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -33,6 +34,10 @@ class SettingController extends Controller
                 ['value' => $value]
             );
         }
+
+        // cleard the cache
+        $settingService = app(SettingService::class);
+        $settingService->clearCachedSettings();
 
         toastr()->success('Updated Successfully');
         return redirect()->back();
