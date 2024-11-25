@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\AgentListingVideoController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendProfileController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,4 +48,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'as' => 'user.'], func
     Route::resource('/listing-schedule', AgentListingScheduleController::class);
 });
 
+
+// Payment Routes
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('paypal/payment', [PaymentController::class, 'payWithPaypal'])->name('paypal.payment');
+    Route::get('paypal/success', [PaymentController::class, 'paypalSuccess'])->name('paypal.success');
+    Route::get('paypal/cancel', [PaymentController::class, 'paypalCancel'])->name('paypal.cancel');
+});
 require __DIR__ . '/auth.php';
